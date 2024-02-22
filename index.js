@@ -3,36 +3,41 @@ var drumButtons = document.querySelectorAll(".drum")
 for (button of drumButtons) {
     console.log(button);
     button.addEventListener("click", function() {
-        
 
-        if (this.classList.contains("i")) {
-            var audio = new Audio('sounds/crash.mp3');
-            audio.play();
-        }
+        var buttonInnerHTML = this.innerHTML;
 
-        else if (this.classList.contains("a")) {
-            var audio = new Audio('sounds/kick-bass.mp3');
-            audio.play();
-        }
+        switch (buttonInnerHTML) {
+            case "i":
+                var crash = new Audio('sounds/crash.mp3');
+                crash.play();
+                break;
 
-        else if (this.classList.contains("d")) {
-            var audio = new Audio('sounds/snare.mp3');
-            audio.play();
-        }
+            case "a":
+                var kick = new Audio('sounds/kick-bass.mp3');
+                kick.play();
+                break; 
+            
+            case "d":
+                var snare = new Audio('sounds/snare.mp3');
+                snare.play();
+                break;
 
-        else if (this.classList.contains("j")) {
-            var audio = new Audio('sounds/hihatClosed.mp3');
-            audio.play();
-        }
-        
-        else if (this.classList.contains("k")) {
-            var audio = new Audio('sounds/tom-1.mp3');
-            audio.play();
-        }
+            case "j":
+                var hihat = new Audio('sounds/hihatClosed.mp3');
+                hihat.play();
+                break; 
 
-        else if (this.classList.contains("l")) {
-            var audio = new Audio('sounds/tom-2.mp3');
-            audio.play();
+            case "k":
+                var tom1 = new Audio('sounds/tom-1.mp3');
+                tom1.play();
+                break;
+
+            case "l":
+                var tom2 = new Audio('sounds/tom-2.mp3');
+                tom2.play();
+                break;
+
+            default: console.log(buttonInnerHTML);
         }
     });
 }
