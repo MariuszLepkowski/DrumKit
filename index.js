@@ -6,11 +6,13 @@ for (button of drumButtons) {
 
         var buttonInnerHTML = this.innerHTML;
 
+        buttonAnimation(buttonInnerHTML);
         makeSound(buttonInnerHTML);
     });
 }
 
 document.addEventListener("keypress", function(event) {
+    buttonAnimation(event.key);
     makeSound(event.key);
 });
 
@@ -50,4 +52,14 @@ function makeSound(key) {
 
         default: console.log(key);
     }
+}
+
+function buttonAnimation(currentKey) {
+    var activeButton = document.querySelector("." + currentKey);
+
+    activeButton.classList.add("pressed");
+
+    setTimeout(function () {
+        activeButton.classList.remove("pressed");
+    }, 100)
 }
